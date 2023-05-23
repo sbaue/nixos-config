@@ -41,19 +41,36 @@
     };
   };
 
-  # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "myown";
+    homeDirectory = "/home/myown";
   };
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [ 
+    distrobox 
+    librewolf
+    gh
+    gnome-extension-manager
+   # unstable.github-desktop
+  ];
 
   # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs = { 
+    home-manager.enable = true;
+    git.enable = true;
+    neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+#      configure = {
+#        packages.myVimPackage = with pkgs.vimPlugins; {
+#          start = [ vim-nix ];
+#          };
+#        };
+      };
+    };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
