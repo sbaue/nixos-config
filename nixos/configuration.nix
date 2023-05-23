@@ -64,8 +64,8 @@
   system.autoUpgrade = {
     enable = true;
     operation = "boot";
-    flake = "github:sbaue/nixos-config";
-    #flake = "/home/myown/.nix-config";
+#    flake = "github:sbaue/nixos-config";
+    flake = "/home/myown/.nix-config";
   };
   
   networking.hostName = "nixos";
