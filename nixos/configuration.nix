@@ -65,6 +65,7 @@
     enable = true;
     operation = "boot";
     flake = "github:sbaue/nixos-config";
+    #flake = "/home/myown/.nixos-config";
   };
   
   networking.hostName = "nixos";
@@ -151,7 +152,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
       myown = import ../home-manager;
