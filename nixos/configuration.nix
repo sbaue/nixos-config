@@ -114,6 +114,8 @@
     xkbVariant = "";
   };
 
+  programs.steam.enable = true;
+
   environment.gnome.excludePackages = (with pkgs; [
   gnome-photos
   gnome-tour

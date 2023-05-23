@@ -48,29 +48,33 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ 
-    distrobox 
-    librewolf
-    gh
-    gnome-extension-manager
-   # unstable.github-desktop
-  ];
+  home = { 
+    packages = with pkgs; [ 
+      distrobox 
+      librewolf
+      gh
+      gnome-extension-manager
+      unstable.helix
+    ];
+    sessionVariables = {
+      EDITOR = "hx";
+    };
+  };
 
   # Enable home-manager and git
   programs = { 
     home-manager.enable = true;
     git.enable = true;
+    bash.enable = true;
     neovim = {
       enable = true;
       viAlias = true;
       vimAlias = true;
-#      configure = {
-#        packages.myVimPackage = with pkgs.vimPlugins; {
-#          start = [ vim-nix ];
-#          };
-#        };
-      };
+      plugins = with pkgs.vimPlugins; [
+        vim-nix
+	    ];
     };
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
