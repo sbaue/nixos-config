@@ -16,6 +16,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   nixpkgs = {
@@ -60,9 +61,6 @@
     };
   };
 
-  # FIXME: Add the rest of your current configuration
-
-  
   system.autoUpgrade = {
     enable = true;
     operation = "boot";
@@ -150,6 +148,14 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      # Import your home-manager configuration
+      myown = import ../home-manager;
+    };
   };
 
   users.users.myown = {
