@@ -62,6 +62,13 @@
 
   # FIXME: Add the rest of your current configuration
 
+  
+  system.autoUpgrade = {
+    enable = true;
+    operation = "boot";
+    flake = "github:sbaue/nixos-config";
+  };
+  
   networking.hostName = "nixos";
   
   zramSwap.enable = true;
