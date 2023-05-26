@@ -72,19 +72,46 @@
   
   zramSwap.enable = true;
   
-  boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.consoleMode = "auto";
-    systemd-boot.configurationLimit = 5;
-    efi.canTouchEfiVariables = true;
-    efi.efiSysMountPoint = "/boot/efi";
+  boot = {
+    loader = {
+      systemd-boot = { 
+        enable = true;
+        consoleMode = "auto";
+        configurationLimit = 5;
+        };
+      efi = { 
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
     };
-    
-  virtualisation.podman = {
-    enable = true;
-    enableNvidia = true;
-    #autoPrune.enable = true;
-    dockerCompat = true;
+  };
+  
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = { 
+        swtpm.enable = true;
+        ovmf.enable = true;
+      };
+    };
+    podman = {
+      enable = true;
+      enableNvidia = true;
+      autoPrune.enable = true;
+      dockerCompat = true;
+    };
+  };
+
+  networking = {
+    nat.enable = true;
+    networkmanager.enable = true;
+   # interfaces.enp42s0.useDHCP = true;
+   # interfaces.br0.useDHCP = true;
+   # bridges = {
+   # "br0" = {
+   #   interfaces = [ "enp42s0" ];
+   #   };
+   # };
   };
 
   i18n = { 
@@ -110,36 +137,25 @@
 
   services.printing.enable = false;
 
-  services.xserver.enable = true;
   services.flatpak.enable = true;
+  
   services.xserver = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
     videoDrivers = [ "nvidia" ];
     layout = "de";
     xkbVariant = "";
   };
 
-  programs.steam.enable = true;
+  programs = {
+    steam.enable = true;
+    };
+  
 
-  environment.gnome.excludePackages = (with pkgs; [
-  gnome-photos
-  gnome-tour
-  ]) ++ (with pkgs.gnome; [
-  cheese # webcam tool
-  gnome-music
-  gnome-terminal
-  gedit # text editor
-  epiphany # web browser
-  geary # email reader
-  evince # document viewer
-  gnome-characters
-  totem # video player
-  tali # poker game
-  iagno # go game
-  hitori # sudoku game
-  atomix # puzzle game
-  ]);
+  environment = {
+    systemPackages = with pkgs; [ virt-manager egl-wayland ];
+    };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -162,7 +178,7 @@
   users.users.myown = {
     isNormalUser = true;
     description = "Sebastian Bauer";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd"];
   };
 
   system.stateVersion = "22.11";
