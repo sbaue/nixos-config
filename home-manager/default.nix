@@ -53,8 +53,8 @@
       distrobox 
       librewolf
       gh
-      gnome-extension-manager
       helix
+      kate
     ];
     sessionVariables = {
       EDITOR = "hx";
