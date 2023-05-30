@@ -54,7 +54,7 @@
       librewolf
       gh
       gnome-extension-manager
-      unstable.helix
+      helix
     ];
     sessionVariables = {
       EDITOR = "hx";
