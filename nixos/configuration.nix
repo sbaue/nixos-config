@@ -135,21 +135,29 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.nvidia.modesetting.enable = true;
 
-  services.printing.enable = false;
-
-  services.flatpak.enable = true;
-  
-  services.xserver = {
-    enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    videoDrivers = [ "nvidia" ];
-    layout = "de";
-    xkbVariant = "";
+  services = {
+    printing.enable = false;
+    flatpak.enable = true;
+    xserver = {
+      enable = true;
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
+      videoDrivers = [ "nvidia" ];
+      layout = "de";
+      xkbVariant = "";
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
 
-  programs = {
+
+ programs = {
     steam.enable = true;
+    kdeconnect.enable = true;
     };
   
 
@@ -160,12 +168,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

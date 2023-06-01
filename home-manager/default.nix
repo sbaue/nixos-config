@@ -53,8 +53,8 @@
       distrobox 
       librewolf
       gh
-      helix
       kate
+      libsForQt5.plasma-vault
     ];
     sessionVariables = {
       EDITOR = "hx";
@@ -66,6 +66,12 @@
     home-manager.enable = true;
     git.enable = true;
     bash.enable = true;
+    helix = {
+      enable = true;
+      settings = {
+        theme = "onedarker";
+      };
+    };
     neovim = {
       enable = true;
       viAlias = true;
