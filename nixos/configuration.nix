@@ -162,7 +162,7 @@
   
 
   environment = {
-    systemPackages = with pkgs; [ virt-manager egl-wayland ];
+    systemPackages = with pkgs; [ virt-manager egl-wayland libsForQt5.plasma-vault ];
     };
 
   sound.enable = true;

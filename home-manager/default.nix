@@ -54,7 +54,6 @@
       librewolf
       gh
       kate
-      libsForQt5.plasma-vault
     ];
     sessionVariables = {
       EDITOR = "hx";
