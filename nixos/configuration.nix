@@ -140,8 +140,11 @@
     flatpak.enable = true;
     xserver = {
       enable = true;
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
+      displayManager = {
+        lightdm.enable = true;
+        lightdm.greeters.slick.enable = true;
+      };
+      desktopManager.cinnamon.enable = true;
       videoDrivers = [ "nvidia" ];
       layout = "de";
       xkbVariant = "";
@@ -157,12 +160,11 @@
 
  programs = {
     steam.enable = true;
-    kdeconnect.enable = true;
     };
   
 
   environment = {
-    systemPackages = with pkgs; [ virt-manager egl-wayland libsForQt5.plasma-vault ];
+    systemPackages = with pkgs; [ virt-manager egl-wayland ];
     };
 
   sound.enable = true;
