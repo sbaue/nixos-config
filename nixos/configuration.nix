@@ -69,6 +69,8 @@
   };
   
   networking.hostName = "nixos";
+
+  time.timeZone = "Europe/Berlin";
   
   zramSwap.enable = true;
   
@@ -81,7 +83,7 @@
         };
       efi = { 
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        efiSysMountPoint = "/boot";
       };
     };
   };
