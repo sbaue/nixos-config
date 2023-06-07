@@ -53,8 +53,8 @@
       distrobox 
       librewolf
       gh
-      kate
-    ];
+      gnome.gnome-software
+      ];
     sessionVariables = {
       EDITOR = "hx";
     };
