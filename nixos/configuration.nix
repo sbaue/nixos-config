@@ -65,7 +65,7 @@
     enable = true;
     operation = "boot";
 #    flake = "github:sbaue/nixos-config";
-    flake = "/home/myown/.nixcfg";
+    flake = "/home/myown/.nix";
   };
   
   networking.hostName = "nixos";
