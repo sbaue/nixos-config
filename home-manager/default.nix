@@ -54,6 +54,7 @@
       librewolf
       gh
       gnome.gnome-software
+   #  github-desktop
       ];
     sessionVariables = {
       EDITOR = "hx";

@@ -70,8 +70,6 @@
   
   networking.hostName = "nixos";
 
-  time.timeZone = "Europe/Berlin";
-  
   zramSwap.enable = true;
   
   boot = {
@@ -115,6 +113,8 @@
    #   };
    # };
   };
+
+  time.timeZone = "Europe/Berlin";
 
   i18n = { 
     defaultLocale = "de_DE.UTF-8";
@@ -166,7 +166,7 @@
   
 
   environment = {
-    systemPackages = with pkgs; [ virt-manager egl-wayland ];
+    systemPackages = with pkgs; [ papirus-icon-theme virt-manager egl-wayland ];
     };
 
   sound.enable = true;
