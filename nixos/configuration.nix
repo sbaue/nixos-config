@@ -166,7 +166,7 @@
   
 
   environment = {
-    systemPackages = with pkgs; [ papirus-icon-theme virt-manager egl-wayland ];
+    systemPackages = with pkgs; [ papirus-icon-theme distrobox virt-manager egl-wayland ];
     };
 
   sound.enable = true;

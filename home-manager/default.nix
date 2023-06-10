@@ -50,7 +50,7 @@
   # programs.neovim.enable = true;
   home = { 
     packages = with pkgs; [ 
-      distrobox 
+      #distrobox 
       librewolf
       gh
       gnome.gnome-software
