@@ -146,7 +146,7 @@
         lightdm.enable = true;
         lightdm.greeters.slick.enable = true;
       };
-      desktopManager.cinnamon.enable = true;
+      desktopManager.budgie.enable = true;
       videoDrivers = [ "nvidia" ];
       layout = "de";
       xkbVariant = "";
@@ -166,7 +166,7 @@
   
 
   environment = {
-    systemPackages = with pkgs; [ papirus-icon-theme distrobox virt-manager egl-wayland ];
+    systemPackages = with pkgs; [ distrobox virt-manager egl-wayland ];
     };
 
   sound.enable = true;
