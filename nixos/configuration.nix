@@ -19,6 +19,11 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  fileSystems."/".options = [
+   "noatime"
+   "compress=zstd"
+  ];
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -143,10 +148,9 @@
     xserver = {
       enable = true;
       displayManager = {
-        lightdm.enable = true;
-        lightdm.greeters.slick.enable = true;
+        sddm.enable = true;
       };
-      desktopManager.budgie.enable = true;
+      desktopManager.plasma5.enable = true;
       videoDrivers = [ "nvidia" ];
       layout = "de";
       xkbVariant = "";
@@ -160,14 +164,16 @@
   };
 
  xdg.portal.enable = true;
+ 
  programs = {
     steam.enable = true;
     };
-  
 
   environment = {
-    systemPackages = with pkgs; [ distrobox virt-manager egl-wayland ];
-    };
+    systemPackages = with pkgs; [ 
+      virt-manager 
+    ];
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
