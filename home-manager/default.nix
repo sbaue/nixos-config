@@ -54,6 +54,8 @@
       librewolf
       gh
       kate
+#      krusader
+      mullvad
     ];
     sessionVariables = {
       EDITOR = "hx";
