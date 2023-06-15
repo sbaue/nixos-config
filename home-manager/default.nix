@@ -65,7 +65,11 @@
   # Enable home-manager and git
   programs = { 
     home-manager.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      userName  = "sbaue";
+      userEmail = "sbauer@posteo.de";
+      };
     bash.enable = true;
     helix = {
       enable = true;
