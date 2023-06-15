@@ -65,6 +65,21 @@
   # Enable home-manager and git
   programs = { 
     home-manager.enable = true;
+    librewolf = {
+      enable = true;
+      settings = {
+        "privacy.resistFingerprinting.letterboxing" = "true";
+        "identity.fxaccounts.enabled" = "true";
+        "privacy.clearOnShutdown.history" = "false";
+        "services.sync.username" = "sbauer@posteo.de";
+        "browser.startup.page" = "3";
+        "intl.locale.requested" = "de,en-US";
+        "intl.accept_languages" = "en-US,en";
+        "signon.autofillForms" = "true";
+        "signon.rememberSignons" = "true";
+        "privacy.spoof_english" = "2";
+        };
+      };
     git = {
       enable = true;
       userName  = "sbaue";
