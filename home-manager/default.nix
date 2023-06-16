@@ -56,6 +56,7 @@
       kate
 #      krusader
       mullvad-browser
+      tldr
     ];
     sessionVariables = {
       EDITOR = "hx";
