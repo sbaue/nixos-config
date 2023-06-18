@@ -55,7 +55,8 @@
       librewolf
       gh
       kate
-#      krusader
+      kitty
+      mc
       mullvad-browser
       tldr
     ];
