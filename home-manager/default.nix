@@ -51,7 +51,6 @@
   home = { 
     packages = with pkgs; [ 
       distrobox 
-      latte-dock
       librewolf
       gh
       kate
