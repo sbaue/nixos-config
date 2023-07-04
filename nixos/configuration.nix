@@ -151,7 +151,7 @@
  
  environment = {
     systemPackages = with pkgs; [ 
-      wgnord 
+       
     ];
   };
 
