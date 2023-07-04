@@ -69,11 +69,11 @@
   system.autoUpgrade = {
     enable = true;
     operation = "boot";
-#    flake = "github:sbaue/nixos-config";
-    flake = "/home/myown/.nix";
+    flake = "github:sbaue/nixos-config";
+#    flake = "/home/myown/.nix";
   };
   
-  networking.hostName = "nixos";
+  networking.hostName = "nixos-server";
 
   zramSwap.enable = true;
   
@@ -93,31 +93,15 @@
   };
   
   virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = { 
-        swtpm.enable = true;
-        ovmf.enable = true;
-      };
-    };
     podman = {
       enable = true;
-      enableNvidia = true;
       autoPrune.enable = true;
       dockerCompat = true;
     };
   };
 
   networking = {
-    nat.enable = true;
     networkmanager.enable = true;
-   # interfaces.enp42s0.useDHCP = true;
-   # interfaces.br0.useDHCP = true;
-   # bridges = {
-   # "br0" = {
-   #   interfaces = [ "enp42s0" ];
-   #   };
-   # };
   };
 
   time.timeZone = "Europe/Berlin";
@@ -141,8 +125,7 @@
 
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
-  hardware.nvidia.modesetting.enable = true;
-
+  
   services = {
     printing.enable = false;
     flatpak.enable = true;
@@ -152,7 +135,7 @@
         sddm.enable = true;
       };
       desktopManager.plasma5.enable = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "intel" ];
       layout = "de";
       xkbVariant = "";
     };
@@ -166,13 +149,9 @@
 
  xdg.portal.enable = true;
  
- programs = {
-    steam.enable = true;
-    };
-
-  environment = {
+ environment = {
     systemPackages = with pkgs; [ 
-      virt-manager 
+       
     ];
   };
 
@@ -191,7 +170,7 @@
   users.users.myown = {
     isNormalUser = true;
     description = "Sebastian Bauer";
-    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd"];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
   };
 
   system.stateVersion = "22.11";
