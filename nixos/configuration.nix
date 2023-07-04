@@ -73,7 +73,7 @@
 #    flake = "/home/myown/.nix";
   };
   
-  networking.hostName = "nixos-server";
+  networking.hostName = "nixos";
 
   zramSwap.enable = true;
   
