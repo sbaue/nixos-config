@@ -51,11 +51,9 @@
   home = { 
     packages = with pkgs; [ 
       distrobox 
-      librewolf
       gh
       kate
       kitty
-      mc
       mullvad-browser
       tldr
     ];
